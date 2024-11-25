@@ -6,7 +6,7 @@ import { faCloudArrowUp, faFilm } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome' 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { addVideoApi } from '../services/allApi';
+import { addVideoApi } from '../Services/allApi';
 
 function Add({setAddStatus}) {
 
