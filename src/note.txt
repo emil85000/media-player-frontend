@@ -1,0 +1,301 @@
+MODULE -3
+----------------------------------REACT--------------------------------------
+- React is a popular open-source web application library.
+- developed and matainted by meta /facebook
+- used to create UI
+
+UI - User Interface
+-------------------
+- point where the user - computer communication/ interaction take place
+
+features of React
+-----------------
+- Library
+- single page application(SPA) - only one page loads in the browser - index.html
+reference : difference between library and framework
+- declarative application
+   - doesnot directly update the dom 
+- VDOM - Virtual dom
+    - create by react
+    - copy of real dom
+    - diffing - the process of comparing VDOM with dom
+    - reconcilliation - the process of updating the dom
+- pure function
+    - output of the function should only depended on arugments or variables in the function. 
+- data sharing
+    - unidirectional - parent to child   
+-language
+jsx - javascript xml (combinational of html and js)   
+  - file - extention - .js .jsx
+- Transpiling
+   - conversion of jsx into browser understanding language.
+   - babel - library used to conversion
+
+How to create a project
+------------------------
+command : npx create-react-app projectname 
+          npm create vite@latest projectname - with the help of vite platform
+
+files/folders
+-------------
+1) README.md - description of the application
+2) package.json - application configration
+                    - dependencies - installed libraries name
+                    - script - start - run - npm start
+                    - not edited
+3) package-lock.json - contains versions and important features like intergrity ,resolved etc to run the installed libraries properly with the application
+4) node_modules - contains the copy of installed libraries                      
+5) .gitignore - holds the name of the file which need to be ignore while pushing into git.
+6) public - contents which have to be globally accessible.
+          - index.html - file that loads into browser
+
+      components
+      -----------
+- basic unit of design
+- extension - .js , .jsx
+- two types
+    - functional components - App.js - app is set of function
+    - class components          
+
+ - rules to create components
+ ------------------------------ 
+ 1) component name must start with capital letter
+ 2) extention can be .js or .jsx
+ 3) renaming is not possible.  
+
+ entire jsx content must be placed inside a single parent Transpiling
+ empty frangment - <>content</> 
+
+ css
+ ----
+ 1) Inline - style = {{property:value ,fontSize:"value"}}
+                   if there are more than one value we should use camelcase eg:fontSize
+  
+- the object will create under function  and push the object in style
+
+- used in tag
+
+2) External - .css external file
+            - link - import 'filepath'
+            - selector{
+                property:value
+            }
+ - a particular component
+
+3) css modules
+      - extension file with extension as .module.css
+      - created onlly inside src folder
+      - link - import vaiablename from 'path'
+      - selector{
+        property:value
+      } 
+-more than one component but not globally used. 
+
+js
+--
+- all js logics should be place above the  return function
+- inorder to access js variable/content inside jsx - provide curly bracket
+
+
+functional component - rfce - basic structure 
+--------------------
+function name (){
+    //js code
+    return(
+        //jsx code
+    )
+}
+
+export default fname
+ 
+ 
+  class component -  rcc- .jsx
+ ----------------
+ export default class cname extends component{
+    render(){
+        return(
+        //jsx
+        )
+    }
+ }
+
+ Data sharing
+ ------------
+ - props
+ - done with the help of predefined object called props.
+
+ destructure
+ ------------
+ {key,......}
+
+ Events
+------
+onclick => onClick
+
+onclick="fname(arg....)"-js
+
+function without arg ---
+onClick={fname}
+
+function with arg--
+onClick={()=>{fname(arg)}}---callback
+
+conditional rendering
+---------------------
+1)ternary -condition?true:false
+2)truthy- condition && true
+
+state
+-----
+state is an object which stores properties of a class components
+state oru value change entire component reload avum
+variable oru value change entire component reload avola that particular node matram reloads x=1 x=10 reassign
+
+in state
+setState()-method to change the state of a component
+
+lifecycle of class components
+-----------------------------
+1)mounting phase- creation of components
+2)update phase- editing of components
+3)unmounting phase - removal of components
+
+mounting phase
+--------------
+1)constructor() - initialization of state
+2)getDrivedStateFromProps() - parentil ninnu varnun data component ithilk varanth props ayit annn - return state/data(update) else null(no update)
+3)render() - returns jsx- output- load into broswer
+4)componentDidMount()-network calls(api call)- handles sideEffect
+
+update phase
+------------
+1)getDrivedStateFromProps()-
+2)shouldComponentsUpdate()-return true or false - true:update
+3)render() - jsx
+4)getSnapShotBeforeUpdate() - VDOM- scrnshot
+5)componentDidUpdate() - dom, api call
+
+unmounting phase
+-----------------
+1)componentWillUnmount() stops all sideeffcts and remove the component from the dom
+
+Error handling phase
+--------------------
+1)getDrivedStateFromError() - UI
+2)componentDidCatch() - LOG
+
+sideEffect
+----------
+All activities that act against the pure functuin is categorized as sideEffect
+
+HOOKS
+------
+ are functions to achieve state and lifecycle for the functional components
+ two types
+ -------
+ predefined - useState() - helps to create state in functional components
+               syntax
+               -----
+              const [statename functionname] = useState("initial state")
+
+             - useEffect() - helps to achieve life cycle for a functional component etc...
+- custome hooks             
+
+rules to used hook
+--------------------
+1) must import hooks before using that component
+2) hooks must be call at the top of the functional component.
+3) hooks cannot be used in conditional bases.
+
+match(regExp) - predefined 
+        - regular experssion - ^[0-9a-z]*$
+        - match returns array whwn the value matches with the regular expression else return null.
+        - boolean value gives !!
+
+set up path react application
+----------------------------------
+1 install react router dom library - npm i react-router-dom
+2 Route tag is used to set the path to a given component with thw help of path and element attribute.
+3 Route tag only exist as the child of Router tag
+4 wrap app selector/tag inside BrowserRouter tag to enable router        
+
+Link tag to attribute
+
+grid
+
+react boootstrap 
+<container>
+<Row>
+  <col md={3}>
+
+  json-server
+  ----------
+  JSON server is a light weight and easy to use node.js tool that can stimulate RESTFUL api using a JSON file as data source.
+  - basically used by frontend deveolper 
+  - can perform crud
+   c - create
+   r - read
+   u - update
+   d - delete
+
+  steps to setup json server
+----------------------------------------
+1)create a seperate folder for a server
+2)create package.json file -application configuration
+      command- npm init -y
+3)install json server library -npm i json-server -latest version
+                              -npm i json-server@version-0.17.4 
+           -package-lock.json
+           -node_modules
+4)create .gitignore file
+5)create db.json file to store data
+6)index.js -only file that runs in the server side
+7)edit the script key in package.json file
+8)create the server in the index.js file
+   -import json server library
+   -create the server using create() method in json server library
+   -set port for the server
+   - make the server listen to that port
+   middleware - it is a function which have the capacity to break the request response cycle. it is a middleware to parse json format. 
+
+   Axios
+   -----
+   - a technique to create http client request (api calls)
+   - base on promise
+   - usage
+   -------
+  1) install axios - command - npm install axios
+  2) import import
+  3) axios(comfig)
+     config = {
+        method:http request - get , put post delete
+        url:path to serverside,
+        data: share data , 
+        header: content-type of data
+     }
+      
+   content-type: 1) application/json - input field
+                 2) multipart/form-data - upload content   
+- axios will convert object into json
+
+nodemon
+------
+- useEffect - used to handle side effects
+   eg: api
+   useEffect(()=>{
+
+   }, dependency )
+   - first arg - function
+   - second arg - dependency - optional
+
+   types of dependency
+   -------------------
+   1) no dependency- calls in every render
+   2) empty array -useEffect - call when the component render in to browser
+   3) [state , props] - call when the component render into the browser as well as the value of the state or props changes.
+
+   state lifting
+   --------------
+  the process of sharing data b/wcomponents(other than parent child)
+  -state is created the closest common parent or ancestor.
+  -function to change the stste is passed to the component which provide data and state is passed to the component which displat the data.

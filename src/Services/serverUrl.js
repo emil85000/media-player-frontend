@@ -1,0 +1,1 @@
+export const serverUrl="https://mediaplayer-server-gwzc.onrender.com"
